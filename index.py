@@ -1,15 +1,10 @@
-import argparse
+import sys
 import os
 import re
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Process some documents')
-    parser.add_argument('--text_file', type=str, required=True,
-                        help='a text file containing documents')
-
-    args = parser.parse_args()
-    text_file = open(args.text_file, 'r')
+    text_file = open(sys.argv[1], 'r')
     documents = text_file.read().split("\n\n")
     formatted_docs = []
     inverted_index = {}
