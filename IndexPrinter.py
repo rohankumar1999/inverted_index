@@ -4,6 +4,9 @@ import re
 
 
 def main():
+    if len(sys.argv)!=2 :
+        print("Please provide the arguments in the following format: python InvertedIndexPrinter.py filename")
+        sys.exit(1)
     text_file = open(sys.argv[1], 'r')
     documents = text_file.read().split("\n\n")
     formatted_docs = []
