@@ -9,11 +9,13 @@ def main():
     formatted_docs = []
     inverted_index = {}
     for doc in documents:
-        formatted_docs.append(re.split(r'\s+|\d+|\W+', doc))
+        formatted_docs.append([x for x in re.split(r'\s+|\d+|\W+', doc) if x])
+    
     for i in range(0, len(formatted_docs)):
         for word in formatted_docs[i]:
             inverted_index[word] = {i+1} if not inverted_index.get(word) else inverted_index[word] | {i+1}
     inverted_index = dict(sorted(inverted_index.items()))
+    # print(inverted_index)
     line1 = ""
     num_words = "0000"+str(len(inverted_index))
     line1 += num_words[-4:]
